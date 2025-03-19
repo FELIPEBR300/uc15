@@ -93,7 +93,9 @@ i {
  
  .banner h2{
     font-size: 4rem;
+    padding: 1.6rem  ;
     margin-bottom: 1.2rem;
+    
     /* position relative é relativo a caixa. */
     position: relative;
     /* o z-index define o eixo "z" de profundidade 3d na frente ou atrás */
@@ -117,6 +119,7 @@ i {
     top: 40px;
     z-index:1;
 }
+
 
 .dots{
     display:flex;
@@ -331,6 +334,8 @@ border-top: 1px solid var(--secondary-text-color);
    text-align: center;   
    padding-bottom: 3rem;
    
+
+   
 }
 
 #team h2{
@@ -357,6 +362,7 @@ span .square{
 
 .employees{
     display: flex; 
+    flex-wrap: wrap;
     justify-content: center;
     gap: 3.5rem;
     padding-bottom: 2rem;
@@ -416,17 +422,30 @@ span .square{
 #contact-information form{
     display: flex;
     flex-direction: column;
+ 
     gap: 1rem;
 }
 
-#contact-informaation .form-control{
+#contact-information .form-control{
     display: flex;
     gap: 1rem;
 }
 
+#contact-information .form-control #name{
+    padding: 0.6rem;
+}
+#contact-information .form-control #email{
+    padding: 0.6rem;
+    width: 100%;
+   }
+#contact-information #phone{
+    padding: 0.6rem;
+   }
+   
+
 #contact-information textarea{
     flex: 0.5;
-    padding: 1rem;
+    padding: 2rem;
     border: none;
 }
 
@@ -442,12 +461,300 @@ span .square{
     color: var(--main-color);
 }
 
+/* ---- FOOTER ---- */
+
+
+/* Essa função deixa todo o fundo do rodapé em cor configurada marrom, coloca as box alinhadas horizontalmente */
+  #footer {
+  color: var(--primary-text-color);
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 3rem 5rem;
+}
+
+
+/* Altera o tamanho dos icones */
+#footer i {
+  font-size: 1rem;
+  padding: 0.3rem;
+}
+
+/* Deixa o texto dentro da caixa na cor informada, no caso branco */
+#footer a {
+  color: var(--primary-text-color);
+}
+
+
+/* Altera o espaçamento das colunas do footer */
+.contact-info,
+.links-container {
+  width: 20%;
+}
+
+/* Adiciona espaçamento na parte de baixo da caixa como o nome da empresa afastando-a da caixa de endereço */
+.footer-brand {
+  margin-bottom: 2rem;
+}
+
+ /* Cria uma caixa com fundo vermelho destacando o nome da empresa */
+.footer-brand h2 {
+  background-color: var(--main-color);
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+}
+
+
+/* Adiciona espaçamento entre as linhas de texto da caixa de endereço */
+.contact-info p {
+  margin-bottom: 1rem;
+}
+
+
+/* Deixa as caixas de fundo vermelho dos icones transparentes, ressaltando apenas o icone */
+.contact-info p i {
+  background-color: transparent;
+  padding: 0;
+  color: var(--main-color);
+}
+
+/* Coloca espaçamento na parte de baixo da caixa de icones "siga-nos", afasta o texto dos icones em direção para baixo */
+.social-networks p {
+  margin-bottom: 1rem;
+}
+
+
+/* Adicona espaçamento entre os icones da caixa "siga-nos" */
+.networks {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+
+/* Altera o tamanho dos icones da caixa "siga-nos" */
+#footer .networks i {
+  padding: 1rem;
+}
+
+
+/* Deixa o texto todo em maiusculo nas caixas titulos de cada coluna */
+.links-container h4 {
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+/* Define a largura do texto dentro da caixa */
+.links-container nav {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Coloca linha na parte de baixo de cada caixa, para destacar o texto */
+.links-container nav a {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Alinha em horizontal o icone de telefone e o numero de telefone */
+.phone-number {
+  display: flex;
+  border: 1px solid var(--main-color);
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Altera a cor do texto da caixa de informações sobre o telefone para cor cinza
+, desta forma esse texto não chama tanta atenção quanto o do telefone */
+
+.phone-info {
+  color: var(--secondary-color);
+}
+/* fim do rodapé */
+
+
+/* Mobile navbar */
+#menu,
+#close-menu{
+    font-size: 2rem;
+    padding: 1rem;
+    display: none;
+}
+
+#close-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#mobile-navbar{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    /* rgba = a é a transparencia de fundo */
+    background-color: rgba(0,0,0,0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    transition: 0.4s;
+    z-index: 5;
+
+}
+
+#mobile-navbar.menu-active{
+    left: 0;
+}
+
+#mobile-navbar a{
+    color: var(--primary-text-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--main-color);
+
+}
 
 
 
-/* #contact-image-container{
-    flex: 1;
-} */
+/* @media = midia query, são as configurações responsíveis para mobile (celular)  */
+
+@media (max-width:450px){
+
+    body{
+        /* esconder o scrool lateral se sobrar a direita */
+        overflow-x: hidden;      
+    }
+    i {
+        padding: 1.5rem;
+        font-size: 1.5rem;
+    }
+    #navbar{
+        display: none;
+    }
+    #menu,
+    #close-menu{
+        display:block;
+    }
+/* banner e texto do banner */
+    .banner{
+        max-width: 100%;
+        padding: 4rem 2rem;
+    }
+    .banner h2{
+        font-size: 3rem;
+    }
+    .banner p{
+        font-size: 1.2rem;
+    }
+/* areas de atuação */
+    .btn{
+        /* align self vai fazer o alinhamento só no botão */
+        align-self: initial;
+    }
+    .image-container{
+        flex: 1 1 100%;
+    }
+    #other-services{
+        flex-wrap: wrap;
+    }
+/* sobre nós */
+    #about{
+        
+
+    }
+    #about-text,
+    #about-data{
+        flex: 1 1 100%;
+    }
+    .about-description{
+        gap: 1rem;
+    }
+    .about-description i{
+        padding: 0;
+        min-width: 40px;
+    }
+    #about #about-data .data{
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--secondary-text-color);
+    }
+    #about #about-data .data i{
+        font-size: 2.2rem;
+    }
+/* Depoimentos */
+    .text-container{
+        text-align: center;
+        padding: 2rem;
+    }
+/* Colaboradores */
+    #team{
+        margin-top: 2rem;
+        
+    }
+    #team h2{
+        font-size: 2rem;
+        max-width: 100%;
+    }
+    .employees{
+        /* flex-direction: column */
+        flex-wrap: wrap;
+    }
+    /* contato */
+    #contact{
+        padding-bottom: 0;
+    }
+    #contact-information{
+        padding: 7rem 1rem;
+    }
+    #contact-information .form-control{
+        flex-direction: column;
+
+    }
+    #contact-information .btn{
+        align-self: auto;
+    }
+
+    /* rodape - footer */
+    #footer{
+       flex-wrap: wrap;
+    }
+    .contact-info,
+    .links-container{
+      width: 100%;
+    }
+    #footer i{
+      font-size: 2rem;
+      padding: 1rem;
+    }  
+    .footer-brand{
+        text-align: center;
+    }
+    #networks{
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+    .links-container{
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    .links-container h4{
+        margin-bottom: 1.5rem;
+    }
+    .links-container .phone-info{
+        margin-bottom: 1.5rem;
+    }
+      
+   
+
+ 
+          
 
 
-/* caracteristicas de layout, placeholder,  */
+}
+
