@@ -39,7 +39,11 @@ function showSlides(){
 // function () {
 //} 
 
-
+[menuBtn, closeMenuBtn].forEach( (btn) => {
+    btn.addEventListener("click", (e) =>{
+        menu.classList.toggle("menu-active")
+    })
+})
 
 
 //ativar menu-mobile
